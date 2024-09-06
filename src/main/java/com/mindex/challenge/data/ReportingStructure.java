@@ -9,7 +9,7 @@ public class ReportingStructure {
 
     public ReportingStructure(Employee employee) {
         this.employee = employee;
-        findReports(employee); // This just gives first level. Need reports of reports
+        calculateDirectReports(employee);
     }
 
     public Employee getEmployee() {
@@ -28,11 +28,11 @@ public class ReportingStructure {
         this.numberOfReports = numberOfReports;
     }
 
-    private void findReports(Employee employee) {
+    private void calculateDirectReports(Employee employee) {
         if (null != employee.getDirectReports() && !employee.getDirectReports().isEmpty()) {
             for (Employee report: employee.getDirectReports()) {
                 this.numberOfReports += 1;
-                findReports(report);
+                calculateDirectReports(report);
             }
         }
     }
