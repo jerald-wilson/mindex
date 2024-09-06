@@ -21,14 +21,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee create(Employee employee) {
         LOG.debug("Creating employee [{}]", employee);
 
-        employee.setEmployeeId(UUID.randomUUID().toString());
+        employee.setEmployeeId(UUID.randomUUID());
         employeeRepository.insert(employee);
 
         return employee;
     }
 
     @Override
-    public Employee read(String id) {
+    public Employee read(UUID id) {
         LOG.debug("Creating employee with id [{}]", id);
 
         Employee employee = employeeRepository.findByEmployeeId(id);

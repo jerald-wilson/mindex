@@ -1,9 +1,10 @@
 package com.mindex.challenge.data;
 
 import java.util.List;
+import java.util.UUID;
 
 public class Employee {
-    private String employeeId;
+    private UUID employeeId;
     private String firstName;
     private String lastName;
     private String position;
@@ -13,11 +14,11 @@ public class Employee {
     public Employee() {
     }
 
-    public String getEmployeeId() {
+    public UUID getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(String employeeId) {
+    public void setEmployeeId(UUID employeeId) {
         this.employeeId = employeeId;
     }
 

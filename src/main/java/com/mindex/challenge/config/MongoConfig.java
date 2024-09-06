@@ -27,7 +27,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
     public MongoClient mongoClient() {
         MongoServer server = new MongoServer(new MemoryBackend());
         InetSocketAddress serverAddress = server.bind();
-        String mongoConnectionString = String.format("mongodb://%s:%d", serverAddress.getHostName(), serverAddress.getPort());
+        String mongoConnectionString = String.format("mongodb://%s:%d/?uuidRepresentation=STANDARD", serverAddress.getHostName(), serverAddress.getPort());
         return MongoClients.create(mongoConnectionString);
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.assertEquals;
+import java.util.UUID;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -20,7 +21,7 @@ public class DataBootstrapTest {
 
     @Test
     public void test() {
-        Employee employee = employeeRepository.findByEmployeeId("16a596ae-edd3-4847-99fe-c4518e82c86f");
+        Employee employee = employeeRepository.findByEmployeeId(UUID.fromString("16a596ae-edd3-4847-99fe-c4518e82c86f"));
         assertNotNull(employee);
         assertEquals("John", employee.getFirstName());
         assertEquals("Lennon", employee.getLastName());
